@@ -12,17 +12,18 @@ tags:
     - crypto-js
     - UTF-16
 ---
+
 # 关于JavaScript 的 Base64 中文解析 乱码
 
 
 #### 处理方案 1
 
 UTF8页面的编码在存储时实际上还是用的UTF-16！
-解决方法：解码后把utf8还原为utf16即可。
 
+解决方法：解码后把utf8还原为utf16即可。
 附上网上找的utf8与utf16互相转换的实现：
 
-#####utf-16转utf8
+##### utf-16转utf8
 
 ```
 utf16to8 : function(str) {
@@ -122,16 +123,16 @@ break;
 }
 
 }
-
 return out;
-
 }
 ```
 
 #### 解决方案 2 
 
 引用谷歌的crypto-js库
+
 ```
 var parsedWordArray = CryptoJS.enc.Base64.parse(userInfoStr);
+
 var info = parsedWordArray.toString(CryptoJS.enc.Utf8);
 ```
